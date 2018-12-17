@@ -23,10 +23,12 @@ mostly mechanically.
 
 ## About the Translation
 
-The file [`MISER-PC.BAS`](MISER-PC.BAS) contains the original source of the
-Miser text adventure, as converted from the Commodore 64 by Rene van Hasselaar.
-The file [`chipmiser.bas`](chipmiser.bas) is a version of that file, converted
-for use with Chipmunk BASIC.
+The file [`MISER.PRG`](MISER.PRG) contains the original 1981 BASIC program
+from Issue #27 of Cursor Magazine.
+The file [`MISER-PC.BAS`](MISER-PC.BAS) contains the source of the 1938 edition
+of Miser, as converted from the Commodore 64 by Rene van Hasselaar.
+The file [`chipmiser.bas`](chipmiser.bas) is a version of the PC version,
+converted for use with Chipmunk BASIC.
 The file [`fixdata.py`](fixdata.py) is a Python script that performs some of
 the dialect conversion steps.
 
