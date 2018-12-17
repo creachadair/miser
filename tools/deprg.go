@@ -1,6 +1,7 @@
 // Program deprg decodes a Commodore BASIC PRG file into BASIC source.
 //
-// Usage: deprg input.prg [output.bas]
+// Usage: go run deprg input.prg [output.bas]
+//   (requires Go: https://golang.org/doc/install)
 //
 package main
 
