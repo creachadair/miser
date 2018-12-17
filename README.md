@@ -58,8 +58,8 @@ Conversion done 25-Oct-2007.
 
 ## License
 
-Except for `MISER-PC.BAS`, all the files in this repository are subject to the
-following license terms:
+Except for files governed by other copyrights, all the files in this repository
+are subject to the following license terms:
 
 Copyright (c) 2007 Michael J. Fromberger, All Rights Reserved.
 
