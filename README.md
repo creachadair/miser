@@ -5,7 +5,7 @@ BASIC on a Commodore computer. Specifically, I wrote my first programs on the
 Commodore PET in around 1979.
 
 One of the programs that captured my imagination early on was the 1981 "Miser"
-by Mary Jane Lansing. "Miser" was an example of the _text adventure_ genre that
+by Mary Jean Lansing. "Miser" was an example of the _text adventure_ genre that
 was born with Will Crowther & Don Woods's "[Colossal Cave Adventure][cca]", and
 would grow to popularity with the [Infocom][icom] games of the 1980s.  Although
 Miser lacks the detail and intricacy of some other games, I was very taken as a
