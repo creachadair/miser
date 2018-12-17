@@ -5,13 +5,14 @@ BASIC on a Commodore computer. Specifically, I wrote my first programs on the
 Commodore PET in around 1979.
 
 One of the programs that captured my imagination early on was the 1981 "Miser"
-by Mary Jane Lansing. "Miser" was an example of the "text adventure" genre that
+by Mary Jane Lansing. "Miser" was an example of the _text adventure_ genre that
 was born with Will Crowther & Don Woods's "[Colossal Cave Adventure][cca]", and
-would grow to popularity with the Infocom games of the 1980s.  Although Miser
-lacks the detail and intricacy of some other games, I was very taken as a child
-with the idea of a computer program that could simulate a world with places and
-objects that could respond to your "actions". In many ways, Miser was the
-beginning of my long-standing interest in computer languages and translation.
+would grow to popularity with the [Infocom][icom] games of the 1980s.  Although
+Miser lacks the detail and intricacy of some other games, I was very taken as a
+child with the idea of a computer program that could simulate a world with
+places and objects that could respond to your "actions". In many ways, Miser
+was the beginning of my long-standing interest in computer languages and
+translation.
 
 In a moment of nostalgia many years later, I wanted to play the game again.
 After some digging found a port by Rene van Hasselaar of the 1983 edition to MS
@@ -49,6 +50,7 @@ Conversion done 25-Oct-2007.
 
 <!-- links -->
 [cca]: http://rickadams.org/adventure/
+[icom]: https://en.wikipedia.org/wiki/Infocom
 [ifarch]: https://www.ifarchive.org/indexes/if-archiveXgamesXsourceXbasic.html
 [chip]: http://www.nicholson.com/rhn/basic/
 
