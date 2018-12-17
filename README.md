@@ -24,9 +24,10 @@ mostly mechanically.
 
 ## About the Translation
 
-The file [`MISER.PRG`](MISER.PRG) contains the original 1981 BASIC program
-from Issue #27 of Cursor Magazine.
-The file [`MISER-PC.BAS`](MISER-PC.BAS) contains the source of the 1938 edition
+The files [`MISER.PRG`](MISER.PRG) and [`MISER.BAS`](MISER.BAS) contain the
+original 1981 BASIC program from Issue #27 of Cursor Magazine. It is included
+here mostly for historical curiosity.
+The file [`MISER-PC.BAS`](MISER-PC.BAS) contains the source of the 1983 edition
 of Miser, as converted from the Commodore 64 by Rene van Hasselaar.
 The file [`chipmiser.bas`](chipmiser.bas) is a version of the PC version,
 converted for use with Chipmunk BASIC.
