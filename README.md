@@ -29,8 +29,8 @@ The file [`MISER-PC.BAS`](MISER-PC.BAS) contains the source of the 1938 edition
 of Miser, as converted from the Commodore 64 by Rene van Hasselaar.
 The file [`chipmiser.bas`](chipmiser.bas) is a version of the PC version,
 converted for use with Chipmunk BASIC.
-The file [`fixdata.py`](fixdata.py) is a Python script that performs some of
-the dialect conversion steps.
+The file [`fixdata.py`](tools/fixdata.py) is a Python script that performs some
+of the dialect conversion steps.
 
 The required conversions were:
 
