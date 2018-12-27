@@ -82,7 +82,7 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
 
-## Release Notes from Rene Hasselaar
+## Release Notes from Rene van Hasselaar
 
 > L.S.
 >
