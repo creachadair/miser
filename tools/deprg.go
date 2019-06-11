@@ -14,7 +14,7 @@ import (
 	"path/filepath"
 	"strings"
 
-	"bitbucket.org/creachadair/prgfile"
+	"github.com/creachadair/prgfile"
 )
 
 func main() {
