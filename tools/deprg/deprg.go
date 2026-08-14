@@ -1,64 +1,67 @@
 // Program deprg decodes a Commodore BASIC PRG file into BASIC source.
 //
 // Usage: go run deprg input.prg [output.bas]
-//   (requires Go: https://golang.org/doc/install)
 //
+//	(requires Go: https://golang.org/doc/install)
 package main
 
 import (
 	"flag"
 	"fmt"
 	"io"
-	"log"
 	"os"
-	"path/filepath"
 	"strings"
 
+	"github.com/creachadair/command"
 	"github.com/creachadair/prgfile"
 )
 
 func main() {
-	flag.Parse()
+	root := &command.C{
+		Name:  command.ProgramName(),
+		Usage: "<input.prg> [<output.bas>]",
+		Help: `Unpack a binary-coded BASIC program (.prg) into text (.bas).
 
-	out := os.Stdout
+If an output path is not specified, output is written to stdout.`,
 
-	switch flag.NArg() {
-	case 2:
-		f, err := os.Create(flag.Arg(1))
-		if err != nil {
-			log.Fatalf("Creating output file: %v", err)
-		}
-		out = f
-		defer func() {
-			if err := f.Close(); err != nil {
-				log.Fatalf("Closing output: %v", err)
+		Run: command.Adapt(func(env *command.Env, inputPath string, rest ...string) error {
+			out := os.Stdout
+			if len(rest) > 1 {
+				return env.Usagef("extra arguments: %q", rest[1:])
+			} else if len(rest) == 1 {
+				f, err := os.Create(flag.Arg(1))
+				if err != nil {
+					return fmt.Errorf("create output file: %w", err)
+				}
+				out = f
 			}
-		}()
-	case 1:
-		// no special action
-	case 0:
-		fallthrough
-	default:
-		log.Fatalf("Usage: %s <input.prg> [<output.bas>]", filepath.Base(os.Args[0]))
-	}
+			defer out.Close()
 
-	in, err := os.Open(flag.Arg(0))
-	if err != nil {
-		log.Fatalf("Opening input file: %v", err)
-	}
-	defer in.Close()
+			in, err := os.Open(flag.Arg(0))
+			if err != nil {
+				return fmt.Errorf("open input file: %w", err)
+			}
+			defer in.Close()
 
-	r, err := prgfile.New(in)
-	if err != nil {
-		log.Fatalf("Initializing PRG reader: %v", err)
+			r, err := prgfile.New(in)
+			if err != nil {
+				return fmt.Errorf("initialize PRG reader: %w", err)
+			}
+			for {
+				line, err := r.Line()
+				if err == io.EOF {
+					break
+				} else if err != nil {
+					return fmt.Errorf("read program: %w", err)
+				}
+				fmt.Fprintf(out, "%d %s\n", line.N, strings.Join(line.Insn, ":"))
+			}
+			return out.Close()
+		}),
+		Commands: []*command.C{
+			command.HelpCommand(nil),
+			command.VersionCommand(),
+		},
 	}
-	for {
-		line, err := r.Line()
-		if err == io.EOF {
-			break
-		} else if err != nil {
-			log.Fatalf("Reading: %v", err)
-		}
-		fmt.Fprintf(out, "%d %s\n", line.N, strings.Join(line.Insn, ":"))
-	}
+	command.RunOrFail(root.NewEnv(nil), os.Args[1:])
 }
