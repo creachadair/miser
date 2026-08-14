@@ -6,7 +6,6 @@
 package main
 
 import (
-	"flag"
 	"fmt"
 	"io"
 	"os"
@@ -25,28 +24,28 @@ func main() {
 If an output path is not specified, output is written to stdout.`,
 
 		Run: command.Adapt(func(env *command.Env, inputPath string, rest ...string) error {
+			in, err := os.Open(inputPath)
+			if err != nil {
+				return fmt.Errorf("open input file: %w", err)
+			}
+			defer in.Close()
+			r, err := prgfile.New(in)
+			if err != nil {
+				return fmt.Errorf("initialize PRG reader: %w", err)
+			}
+
 			out := os.Stdout
 			if len(rest) > 1 {
 				return env.Usagef("extra arguments: %q", rest[1:])
 			} else if len(rest) == 1 {
-				f, err := os.Create(flag.Arg(1))
+				f, err := os.Create(rest[0])
 				if err != nil {
 					return fmt.Errorf("create output file: %w", err)
 				}
 				out = f
 			}
-			defer out.Close()
+			defer out.Close() // in case of error
 
-			in, err := os.Open(flag.Arg(0))
-			if err != nil {
-				return fmt.Errorf("open input file: %w", err)
-			}
-			defer in.Close()
-
-			r, err := prgfile.New(in)
-			if err != nil {
-				return fmt.Errorf("initialize PRG reader: %w", err)
-			}
 			for {
 				line, err := r.Line()
 				if err == io.EOF {
